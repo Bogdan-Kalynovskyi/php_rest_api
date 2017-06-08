@@ -1,0 +1,20 @@
+<div class="editors-list">
+<h2>Editors</h2>
+<md-card>
+    <md-input-container>
+        <input mdInput #editorName placeholder="Editor name" />
+    </md-input-container>
+    &nbsp;
+    <button md-raised-button (click)="add(editorName.value); editorName.value=''">
+        Add
+    </button>
+</md-card>
+<md-nav-list>
+    <a md-list-item *ngFor="let editor of editors" (click)="onSelect(editor)">
+        <span md-line>{{editor.email}}</span>
+        <button md-icon-button (click)="delete(editor); $event.stopPropagation()">
+            <md-icon>delete</md-icon>
+        </button>
+    </a>
+</md-nav-list>
+</div>
